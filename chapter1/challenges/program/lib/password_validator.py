@@ -18,7 +18,5 @@
 # == YOUR CODE ==
 
 def is_valid(password):
-    if len(password) >=8 and any(char in password for char in "!@$%&"):
-        return True
-    return False
+    return len(password) >=8 and any(char in password for char in "!@$%&")
     

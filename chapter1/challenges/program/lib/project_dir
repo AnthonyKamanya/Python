@@ -1,0 +1,90 @@
+letters = ["a","b","c"]
+for index, letter in enumerate(letters):
+    print(index,letter)
+
+letters.insert(0, -2)
+print(letters)
+
+#remove methods
+letters.pop(1) # by default it removes the last item unless you specify the index
+print (letters) 
+letters.remove("b")# you can use this method if you dont know the index but the item
+del letters[1:2] #removes a range of items fromt the list
+print(letters)
+
+letters.clear()# deletes all the objects
+print(letters)
+
+#find methods
+letters = ["a","b","c"]
+print(letters.count("z"))
+if "d" in letters:
+    print (letters.index("d"))
+
+#sorting
+numbers = [3, 51, 2, 8, 6]
+
+numbers.sort(reverse=True) #This function modifies the original list
+sorted(numbers)#This function does nots modify the original list
+print (numbers)
+
+#lets look at tuples
+
+items = [
+    ("product2",25),
+    ("product1",5),
+    ("product3",2)
+]
+
+def sort_item(item):
+    return item[0]
+
+items.sort(key=sort_item) #In this instance we are not calling the defined method we are only passing the method through"""
+print (items)
+
+#refractoring the above code
+items = [
+    ("product2",25),
+    ("product1",5),
+    ("product3",2)
+]
+#lambda parameter:expression
+items.sort(key=lambda item:item[0] ) #In this instance we are not calling the defined method we are only passing the method through"""
+print (items)
+
+#mapping transforming our list list into a different list
+#say we want to get a price list from items
+items = [
+    ("product2",25),
+    ("product1",5),
+    ("product3",2)
+]
+
+prices = []
+for item in items:
+    prices.append(item[1])
+print(prices)
+
+#refactor
+prices= list(map(lambda item:item[1], items))
+print (prices)
+
+#filter
+
+filtered= list(filter(lambda price:price[1]>=10,items))
+print(filtered)
+
+#list comprehension
+#list_comprehension=[expression for item in items]
+
+prices = [item[1] for item in items]
+print(prices)
+filtered= [item for item in items if item[1]>=10] #['expression we want to return' 'for item in item' condition(if)]
+print(filtered)
+
+#zip functions
+
+list1 = [1,2,3]
+list2 = [10,20,30]
+
+print(list(zip("abc",list1,list2)))
