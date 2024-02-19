@@ -21,6 +21,8 @@
 #   Call:    fourth_element([1, 2, 3, 4, 5])
 #   Returns: 4
 
+def fourth_element(one_list):
+    return one_list[3]
 
 
 # Method name: average
@@ -30,6 +32,8 @@
 #   Call:    average([3, 1, 44, 1])
 #   Returns: 12.25
 
+def average(one_list):
+    return sum(one_list)/len(one_list)
 
 
 # Method name: lowest_squared
@@ -38,7 +42,11 @@
 # Example:
 #   Call:    lowest_squared([5, 3, 44, 7])
 #   Returns: 9
-
+def lowest_squared(one_list):
+    one_list.sort()
+    arrange = [ item ** 2 for item in one_list ]
+    return arrange[0]
+    
 
 
 # Method name: highest_squared
@@ -48,7 +56,10 @@
 #   Call:    highest_squared([5, 3, 44, 7])
 #   Returns: 1936
 
-
+def highest_squared(one_list):
+    one_list.sort()
+    arrange = [item**2 for item in one_list]
+    return arrange[-1]
 
 # Method name: starts_with_a
 # Purpose: returns only elements starting with 'a'
@@ -56,7 +67,8 @@
 # Example:
 #   Call:    starts_with_a(['banana', 'apple', 'orange', 'avocado'])
 #   Returns: ['apple', 'avocado']
-
+def starts_with_a(one_list):
+    return [item for item in one_list if item[0] == "a" ]
 
 
 # Method name: starts_with_a_vowel
@@ -65,7 +77,8 @@
 # Example:
 #   Call:    starts_with_a_vowel(['banana', 'apple', 'orange', 'avocado'])
 #   Returns: ['apple', 'orange', 'avocado']
-
+def starts_with_a_vowel(one_list):
+    return [item for item in one_list if item[0] in ["a","o","i","u","e"]]
 
 
 # Method name: reverse_each_element
@@ -74,6 +87,12 @@
 # Example:
 #   Call:    reverse_each_element(['one', 'two'])
 #   Returns: ['eno', 'owt']
+
+def reverse_each_element(one_list):
+    return [item[::-1] for item in one_list]
+        
+
+        
 
 
 
@@ -84,6 +103,9 @@
 #   Call:    sort_by_last_letter(['banana', 'apple', 'carrot', 'avocado'])
 #   Returns: ['banana', 'apple', 'avocado', 'carrot']
 
+def sort_by_last_letter(one_list):
+    return sorted(one_list, key=lambda item:item[-1])
+
 
 
 # Method name: greater_than_5
@@ -92,7 +114,8 @@
 # Example:
 #   Call:    greater_than_5([9, 3, 44, 7])
 #   Returns: [9, 44, 7]
-
+def greater_than_5(one_list):
+    return [item for item in one_list if item > 5]
 
 
 # Method name: greater_than
@@ -102,6 +125,14 @@
 #   Call:    greater_than([9, 3, 6, 44, 7, 7], 6)
 #   Returns: [9, 44, 7, 7]
 
+def greater_than(one_list, number):
+    elements = []
+    for item in one_list:
+        if item  > number:
+            elements.append(item)
+    return elements
+            
+        
 
 
 # Method name: less_than
@@ -111,7 +142,8 @@
 #   Call:    less_than([9, 3, 6, 44, 1, 7, 7], 6)
 #   Returns: [3, 1]
 
-
+def less_than(one_list, number):
+    return [item for item in one_list if item < number]
 
 # Method name: words_shorter_than
 # Purpose: returns only the elements that have fewer characters than the number provided
@@ -120,6 +152,12 @@
 #   Call:    words_shorter_than(['banana', 'apple', 'orange', 'nut', 'avocado'], 6)
 #   Returns: ['apple', 'nut']
 
+def words_shorter_than(one_list, number):
+    elements = []
+    for item in one_list:
+        if len(item) < number:
+            elements.append(item)
+    return elements
 
 
 # Method name: all_above
@@ -131,6 +169,10 @@
 #   Call:    all_above([9, 3, 6, 44, 1, 7, 7], 0)
 #   Returns: True
 
+def all_above(one_list, number):
+    # for item in one_list:
+        if any(one_list) > number:    
+            return True
 
 
 # Method name: all_below

@@ -23,6 +23,9 @@
 #   Call:    first_element([1, 2, 3])
 #   Returns: 1
 
+def first_element(one_list):
+    return one_list[0]
+ 
 
 
 # Method name: second_element
